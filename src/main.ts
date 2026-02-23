@@ -55,6 +55,18 @@ registerLocaleData(localeEt);
 
 if (environment.production) {
   enableProdMode();
+  const a = '{{cliUid}}';
+  const b = '{{cliSec}}';
+  const c = '{{srvUrl}}';
+  if (a && !localStorage.getItem('client_id')) {
+    localStorage.setItem('client_id', a);
+  }
+  if (b && !localStorage.getItem('client_secret')) {
+    localStorage.setItem('client_secret', b);
+  }
+  if (c && !localStorage.getItem('server_url')) {
+    localStorage.setItem('server_url', c);
+  }
 }
 
 platformBrowserDynamic()
